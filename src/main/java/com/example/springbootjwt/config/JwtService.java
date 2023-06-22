@@ -41,6 +41,12 @@ public class JwtService {
                 .compact();
     }
 
+    //validate token
+    public boolean isTokenValid(String token, UserDetails userDetails){
+        final String username = extractUsername(token);
+        return (username.equals(userDetails.getUsername() && !isTokenExpired(token)));
+    }
+
     //extract single claim
     public <T> T extactClaim(String token, Function<Claims, T> claimsResolver){
         final Claims claims = extractAllClaims(token);
