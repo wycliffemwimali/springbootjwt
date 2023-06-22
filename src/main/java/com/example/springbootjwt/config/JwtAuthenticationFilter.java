@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.lang.NonNull;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
@@ -18,6 +19,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     //class to extract userEmail from jwt Token
     private final JwtService jwtservice;
+    private final UserDetailsService userDetailsService;
 
 
     @Override
