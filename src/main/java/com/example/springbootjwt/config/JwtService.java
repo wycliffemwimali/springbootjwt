@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.security.Key;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
 
@@ -20,6 +21,10 @@ public class JwtService {
     private static final String SECRET_KEY = "ULZOJsFeLQswySel8ZknqMRvNaw4pbLV";
     public String extractUsername(String token) {
         return extactClaim(token, Claims::getSubject);
+    }
+
+    public String generateToken(UserDetails userDetails){
+        return generateToken(new HashMap<>(), userDetails);
     }
 
     public String generateToken(
