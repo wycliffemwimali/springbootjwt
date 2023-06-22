@@ -21,6 +21,7 @@ public class JwtService {
     //extract single claim
     public <T> T extactClaim(String token, Function<Claims, T> claimsResolver){
         final Claims claims = extractAllClaims(token);
+        return claimsResolver.apply(claims);
     }
 
     //class to extract all claims
