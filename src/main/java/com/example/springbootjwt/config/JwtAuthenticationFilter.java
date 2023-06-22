@@ -13,6 +13,11 @@ import java.io.IOException;
 @Component
 @RequiredArgsConstructor
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
+
+    //class to extract userEmail from jwt Token
+    private final JwtService jwtservice;
+
+
     @Override
     protected void doFilterInternal(
           @NonNull HttpServletRequest request,
