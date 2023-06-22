@@ -3,6 +3,7 @@ package com.example.springbootjwt.config;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.io.Decoders;
+import io.jsonwebtoken.security.Keys;
 import org.springframework.stereotype.Service;
 
 import java.security.Key;
@@ -28,7 +29,7 @@ public class JwtService {
 
     private Key getSignInKey() {
         byte[] keyBytes = Decoders.BASE64.decode(SECRET_KEY);
-        return null;
+        return Keys.hmacShaKeyFor(keyBytes);
     }
 
 }
