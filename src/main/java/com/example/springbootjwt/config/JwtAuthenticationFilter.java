@@ -28,5 +28,9 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             return;
         }
 
+        //extract token from auth header
+        jwt = authHeader.substring(7);
+
+
     }
 }
