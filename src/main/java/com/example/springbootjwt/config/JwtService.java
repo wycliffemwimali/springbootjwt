@@ -2,7 +2,10 @@ package com.example.springbootjwt.config;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.io.Decoders;
 import org.springframework.stereotype.Service;
+
+import java.security.Key;
 
 @Service
 public class JwtService {
@@ -17,9 +20,15 @@ public class JwtService {
     private Claims extractAllClaims(String token){
         return Jwts
                 .parserBuilder()
-                .setSigningKey(getSignInKey)
+                .setSigningKey(getSignInKey())
                 .build()
                 .parseClaimsJws(token)
                 .getBody();
     }
+
+    private Key getSignInKey() {
+        byte[] keyBytes = Decoders.BASE64.decode(SECRET_KEY);
+        return null;
+    }
+
 }
