@@ -1,4 +1,6 @@
 package com.example.springbootjwt.config;
 
-public class JwtAuthenticationFilter {
+import org.springframework.web.filter.OncePerRequestFilter;
+
+public class JwtAuthenticationFilter extends OncePerRequestFilter {
 }
