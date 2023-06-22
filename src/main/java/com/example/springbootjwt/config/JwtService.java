@@ -4,9 +4,11 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import java.security.Key;
+import java.util.Map;
 import java.util.function.Function;
 
 @Service
@@ -16,6 +18,13 @@ public class JwtService {
     private static final String SECRET_KEY = "ULZOJsFeLQswySel8ZknqMRvNaw4pbLV";
     public String extractUsername(String token) {
         return extactClaim(token, Claims::getSubject);
+    }
+
+    public String generateToken(
+            Map<String, Object> extraClaims,
+            UserDetails userDetails
+    ){
+
     }
 
     //extract single claim
